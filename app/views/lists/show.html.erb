@@ -1,8 +1,9 @@
 <div class="container">
   <h1><%= @list.name %></h1>
+  <%= cl_image_tag @list.image.key, height: 300, width: 400 %>
   <% @list.bookmarks.each do |bookmark| %>
-  <p><%= bookmark.movie.title %><%= link_to "Delete", bookmark_path(bookmark),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+    <p><%= bookmark.movie.title %><%= link_to "Delete", bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
   <% end %>
   <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
 </div>
